@@ -9,7 +9,7 @@
 // Comment out the initial return; to enable.
 
 function lalgdebug_civicrm_pre($op, $objectName, $id, &$params) {
-//	return;
+	return;
 	dpm('Pre_hook ' . $op . '  :  ' . $objectName . '  :  ' . $id);
 	return;
 	if ($objectName == 'Individual' || $objectName == 'Household') {
@@ -19,7 +19,7 @@ function lalgdebug_civicrm_pre($op, $objectName, $id, &$params) {
 }
 
 function lalgdebug_civicrm_post($op, $objectName, $objectId, &$objectRef) {
-//	return;
+	return;
 	dpm('Post_hook ' . $op . '  :  ' . $objectName . '  :  ' . $objectId);
 	return;
 	if ($objectName == 'Membership' || $objectName == 'Contribution' || $objectName == 'Payment') {
