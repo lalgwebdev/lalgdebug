@@ -1,8 +1,8 @@
-# lalgutils
+# lalgdebug
 
 ![Screenshot](/images/screenshot.png)
 
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+Snippets to assist debugging PHP functions.
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
