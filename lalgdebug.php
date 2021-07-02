@@ -4,11 +4,6 @@
 /*     LALG Various Debug Functions                    */
 /************************************************************/
 
-/*************************************************************/
-// Install Kint as alternative to Devel and dpm()
-include dirname(__FILE__) . '/kint.phar';
-//d('Testing Kint');
-
 /************************************************************/
 // Skeleton Pre and Post hooks
 // Comment out the initial return; to enable.
