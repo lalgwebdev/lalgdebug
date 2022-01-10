@@ -41,38 +41,5 @@ function lalg_debug_backtrace ($message) {
 	debug( $backtrace_lite, $message, true );
 }
 
-/*******************************************************************/
-// Schedule Watchdog Mailing
-// Creates and schedules a Watchdog CiviCRM Mailing once a day.
-
-function lalgdebug_civicrm_cron($jobManager) {
-	// Get most recent Watchdog Mailing
-	$result = civicrm_api3('Mailing', 'get', [
-	  'sequential' => 1,
-	  'return' => ["id", "created_date"],
-	  'name' => "Watchdog Mailing",
-	  'options' => ['limit' => 1, 'sort' => "created_date DESC"],
-	]);	
-
-	// Exit if not found
-	if ($result['count'] == 0) { return; }
-
-	// Check have not created today's Watchdog already.
-	$today = date("Y-m-d");
-	$now = date("Y-m-d H:i:s");
-		
-	if ($result['values'][0]['created_date'] >= $today . ' 00:00:00') { return;}  	// Already done one today.
-	
-	// Clone this to make a new Mailing
-	$result = civicrm_api3('Mailing', 'clone', [
-	  'id' => $result['values'][0]['id'],
-	]);
-	
-	// And schedule it for today
-	$result = civicrm_api3('Mailing', 'create', [
-	  'id' => $result['id'],
-	  'scheduled_date' => $now,
-	]);	
-}
 
 
